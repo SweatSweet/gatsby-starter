@@ -1,0 +1,38 @@
+@import '@/scss/import.scss';
+.header {
+  @extend %flex-ac-jb;
+  width: 100vw;
+  padding-inline: $gutter;
+  overflow: hidden;
+  padding-top: max(16px, 2.5rem);
+  padding-bottom: 1rem;
+  position: fixed;
+  z-index: z('navigation');
+  left: 0;
+  right: 0;
+  // @extend %container;
+  mix-blend-mode: difference;
+  color: $col-primary;
+
+  &__icon {
+    @extend %text-20;
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  nav {
+    @extend %flex-ac;
+    gap: max(1rem, 8px);
+    overflow-y: clip;
+    a {
+      @extend %text-20;
+      font-weight: 500;
+      text-transform: uppercase;
+      position: relative;
+      &.active {
+        font-weight: 700;
+        text-decoration: underline;
+      }
+    }
+  }
+}

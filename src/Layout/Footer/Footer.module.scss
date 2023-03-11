@@ -1,0 +1,76 @@
+@import '@/scss/import.scss';
+
+.footer {
+  @extend %container;
+  height: fit-content;
+  padding-bottom: 8rem;
+  p {
+    @extend %text-20;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0.02em;
+    width: max(55rem, 250px);
+    margin-left: auto;
+    margin-right: 10rem;
+
+    @include respondMax('mobile2x') {
+      margin-right: 0;
+    }
+  }
+}
+
+.footerBottom {
+  padding-top: 30vh;
+  @extend %flex-ac-jb;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-family: 'Merchant-Condensed';
+  font-weight: 400;
+  @extend %text-20;
+  @include respondMax('mobile2x') {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  a {
+    margin-left: 0.5rem;
+    @extend %link--hidden;
+  }
+
+  &_left {
+    @extend %flex-ac;
+    flex-wrap: wrap;
+    gap: max(1.5rem, 10px);
+    @include respondMax('mobile2x') {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    div {
+      @extend %flex-ac;
+      font-weight: 400;
+    }
+  }
+}
+
+.footerMarquee {
+  margin-top: 10vh;
+  display: block;
+  h2 {
+    @extend %text-180;
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    animation: marquee 12s linear infinite;
+    width: fit-content;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+}
+
+@keyframes marquee {
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}

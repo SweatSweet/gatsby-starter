@@ -1,0 +1,90 @@
+html {
+  overflow-x: hidden;
+  scroll-behavior: initial;
+  overscroll-behavior: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  font-size: 10px;
+  font-size: calc(100vw / 1440 * 10);
+  line-height: 1;
+
+  --gutter: 4rem;
+  --block: max(60px, 8rem);
+
+  @include respondMax('mobile3x') {
+    --gutter: 20px;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  font-family: Thunder, 'sans-serif';
+  background-color: $col-primary;
+  color: $col-black;
+
+  ::selection {
+    color: $col-primary;
+    text-shadow: none;
+    background: $col-black;
+  }
+}
+
+a {
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+}
+
+button,
+[role='button'] {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+.whitespace {
+  display: inline !important;
+}
+
+.gatsby-image-wrapper {
+  width: 100%;
+  height: auto;
+}
+
+[data-animation='label'],
+[data-animation='paragraphs'],
+[data-animation='paragraph'] {
+  overflow: hidden;
+  span {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+[data-animation='link'] {
+  display: inline-block;
+  @extend %link--hidden;
+  white-space: nowrap;
+
+  .char {
+    &::after {
+      top: 100%;
+      transform: rotate(var(--degree));
+      will-change: transform, top;
+      visibility: visible;
+      font-weight: 500;
+    }
+  }
+}
